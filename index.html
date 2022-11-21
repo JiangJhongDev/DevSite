@@ -429,7 +429,17 @@
                   content += '</div>';
                 content += '<div class="rlr-product-card__ratings" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">';
                   content += '<div class="rlr-review-stars" itemprop="ratingValue" itemscope itemtype="https://schema.org/Product">';
-                    content += '<i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star"> </i>';
+                    let star = starInfo.split(" ")[0];
+                    let stars = 5;
+                    try {
+                      starts = Math.floor(parseFloat(star));
+                    } catch(e) {}
+                    for(let i=0;i<stars;i++) {
+                      content += '<i class="rlr-icon-font flaticon-star-1"> </i>';
+                    }
+                    for(let i=stars;i<5;i++) {
+                      content += '<i class="rlr-icon-font flaticon-star"> </i>';
+                    }
                     content += '</div>';
                   content += '<span class="rlr-product-card__rating-text" itemprop="reviewCount">' + starInfo + '</span>';
                   content += '</div>';
