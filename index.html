@@ -344,7 +344,7 @@
 
       $(function() {
         addAllBanner();
-        createSwiper("解封來去北海道旅遊", "冬季北海道賞雪.洞爺湖.昭和新山.小樽漫遊.溫泉美食五日", "保住一晚溫泉", "8折搶購中", "24,900", "4.7 (577)", "5天4夜", ['機場接送', '4星級以上飯店', '每日三餐', '所有景點門票']);
+        createSwiper("jp01.jpeg", "解封來去北海道旅遊", "冬季北海道賞雪.洞爺湖.昭和新山.小樽漫遊.溫泉美食五日", "保住一晚溫泉", "8折搶購中", "24,900", "4.7 (577)", "5天4夜", ['機場接送', '4星級以上飯店', '每日三餐', '所有景點門票']);
       });
 
       function addAllBanner() {
@@ -359,7 +359,7 @@
         $(".flex-direction-nav").hide();
       }
 
-      function createSwiper(title = "曼谷淫亂趴", subtitle1 = "巴拉巴拉", subtitle2 = "包幹", discountInfo = "8折搶購中", price = 9999, starInfo = '4.7 (577)', days = '3天2夜', infos = ['包吃', '包住', '包車', '包票']) {
+      function createSwiper(img = "01.jpg", title = "曼谷淫亂趴", subtitle1 = "巴拉巴拉", subtitle2 = "包幹", discountInfo = "8折搶購中", price = 9999, starInfo = '4.7 (577)', days = '3天2夜', infos = ['包吃', '包住', '包車', '包票']) {
         let content = '<div class="swiper-slide">';
           content += '<article class="rlr-product-card rlr-product-card--v3" itemscope itemtype="https://schema.org/Product">';
             content += '<figure class="rlr-product-card__image-wrapper">';
@@ -374,13 +374,13 @@
                 content += '<div class="swiper rlr-js-product-multi-image-swiper">';
                   content += '<div class="swiper-wrapper">';
                     content += '<div class="swiper-slide">';
-                      content += '<img itemprop="image" data-sizes="auto" data-src="./assets/images/product-images/small/01.jpg" data-srcset="./assets/images/product-images/small/01.jpg" class="lazyload" alt="product-image" />';
+                      content += '<img itemprop="image" data-sizes="auto" data-src="./tour/'+ img +'" data-srcset="./tour/'+ img +'" class="lazyload" alt="product-image" />';
                       content += '</div>';
                     content += '<div class="swiper-slide">';
-                      content += '  <img itemprop="image" data-sizes="auto" data-src="./assets/images/product-images/small/02.jpg" data-srcset="./assets/images/product-images/small/02.jpg" class="lazyload" alt="product-image" />';
+                      content += '  <img itemprop="image" data-sizes="auto" data-src="./tour/'+ img +'" data-srcset="./tour/'+ img +'" class="lazyload" alt="product-image" />';
                       content += ' </div>';
                     content += ' <div class="swiper-slide">';
-                      content += '  <img itemprop="image" data-sizes="auto" data-src="./assets/images/product-images/small/03.jpg" data-srcset="./assets/images/product-images/small/03.jpg" class="lazyload" alt="product-image" />';
+                      content += '  <img itemprop="image" data-sizes="auto" data-src="./tour/'+ img +'" data-srcset="./tour/'+ img +'" class="lazyload" alt="product-image" />';
                       content += ' </div>';
                     content += ' </div>';
                   content += ' <button type="button" class="btn rlr-button splide__arrow splide__arrow--prev" aria-label="prev button">';
