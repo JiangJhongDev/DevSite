@@ -432,8 +432,8 @@
                     let star = starInfo.split(" ")[0];
                     let stars = 5;
                     try {
-                      starts = Math.floor(parseFloat(star));
-                    } catch(e) {}
+                      stars = Math.floor(parseFloat(star));
+                    } catch(e) {console.log(e)}
                     for(let i=0;i<stars;i++) {
                       content += '<i class="rlr-icon-font flaticon-star-1"> </i>';
                     }
