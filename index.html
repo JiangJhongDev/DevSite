@@ -1,1 +1,478 @@
-Still in process, please dns setting apply in 2-6 hours
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Your vacation, tours and travel theme needs are all met at emprise." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>國際旅遊最優惠 | 快樂遊</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.ico" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="./styles/plugins.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/flexslider.css" media="all" />
+    <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+  </head>
+
+  <body class="rlr-body">
+    <!-- Header -->
+    <header>
+      <nav id="navigation" class="navigation rlr-navigation default-nav fixed-top">
+        <!-- Logo -->
+        <div class="navigation-header">
+          <div class="navigation-brand-text">
+            <div class="rlr-logo rlr-logo__navbar-brand rlr-logo--default">
+              <a href="./index.html">
+                <img src="./assets/logo.png" alt="#" style="width: 70px" class="" />
+              </a>
+            </div>
+          </div>
+          <div class="navigation-button-toggler">
+            <span class="rlr-sVGIcon"> <i class="rlr-icon-font rlr-icon-font--megamenu flaticon-menu"> </i> </span>
+          </div>
+        </div>
+        <div class="navigation-body rlr-navigation__body container">
+          <div class="navigation-body-header rlr-navigation__body-header">
+            <div class="navigation-brand-text">
+              <div class="rlr-logo rlr-logo__navbar-brand rlr-logo--default">
+                <a href="./index.html">
+                  <img src="./assets/logo.png" alt="#" style="height: 70px" class="" />
+                </a>
+              </div>
+            </div>
+            <span class="rlr-sVGIcon navigation-body-close-button"> <i class="rlr-icon-font rlr-icon-font--megamenu flaticon-close"> </i> </span>
+          </div>
+
+            <!-- User account dropdown -->
+            <li class="navigation-item">
+              <a class="navigation-link" href="#"> Sarah J <img class="ui right spaced avatar image" src="./assets/images/blog-single-avatar.png" alt="account avatar" /> </a>
+              <ul class="navigation-dropdown">
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./my-account-pages--dashboard.html">Profile</a>
+                </li>
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./my-account-pages--order.html">Your Orders</a>
+                </li>
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./my-account-pages--subscription.html">Subscriptions</a>
+                </li>
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./search-results--no-sidebar.html">Favorites</a>
+                </li>
+                <li class="navigation-dropdown-item">
+                  <hr class="dropdown-divider rlr-dropdown__divider" />
+                </li>
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./account-pages--login.html">Sign out</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Main Content -->
+    <main id="rlr-main" class="rlr-main--fixed-top">
+      <!-- Hero Banner -->
+      <div id="flexslider">
+        <ul class="slides">
+            
+        </ul>
+      </div>
+      
+      <div class="container">
+        <form class="rlr-banner-search rlr-banner-search--hero-half-mast">
+          <div class="rlr-banner-search__input-wrapper">
+            <div class="rlr-banner-input-group rlr-banner-input-group rlr-banner-input-group--home-search rlr-js-autocomplete-demo rlr-banner-search__banner-input rlr-js-search-layout-wrapper">
+              <label class="rlr-banner-input-group__label" for="destination_input">
+                <mark>前往</mark>
+              </label>
+              <div class="rlr-banner-input-group__input-wrapper">
+                <input id="destination_input" name="location" type="text" autocomplete="off" class="rlr-banner-input-group__input destination_input" placeholder="輸入旅遊地點" />
+                <i class="rlr-icon-font flaticon-map-marker"> </i>
+                <ul id="home_destination_results" class="rlr-banner-input-group--location-dropdown rlr-autocomplete"></ul>
+              </div>
+            </div>
+
+            <div class="rlr-banner-input-group rlr-js-autocomplete-activity-demo rlr-banner-search__banner-input rlr-js-search-layout-wrapper">
+              <label class="rlr-banner-input-group__label" for="rlr-banner-input-group-activity">
+                <mark>人數</mark>
+              </label>
+              <div class="rlr-banner-input-group__input-wrapper">
+                <input id="rlr-banner-input-group-activity" name="activity" type="text" autocomplete="off" class="rlr-banner-input-group__input activity_autocomplete" placeholder="選擇人數" />
+                <i class="rlr-icon-font flaticon-outline-down"> </i>
+                <ul id="autocomplete-results" class="rlr-banner-input-group--activity-dropdown rlr-autocomplete"></ul>
+              </div>
+            </div>
+
+            <div class="rlr-banner-input-group rlr-banner-search__banner-input rlr-js-search-layout-wrapper">
+              <label class="rlr-banner-input-group__label" for="rlr-banner-input-group-dates">
+                <mark>日期</mark>
+              </label>
+              <div class="rlr-banner-input-group__input-wrapper">
+                <input id="rlr-banner-input-group-dates" type="text" autocomplete="off" class="rlr-banner-input-group__input eee_home_search_flatpickr" placeholder="設定日期" />
+                <i class="rlr-icon-font flaticon-calendar"> </i>
+                <ul id="home_date_results" class="rlr-banner-input-group--date-dropdown rlr-autocomplete"></ul>
+              </div>
+            </div>
+          </div>
+          <button class="rlr-banner-search__submit-button" aria-label="banner submit" onclick="alert('因旅遊旺季，暫停行程搜尋功能，請由套票區選取張數')">
+            <i class="rlr-icon-font flaticon-search"> </i>
+          </button>
+        </form>
+      </div>
+      
+      <!-- Product Carousel -->
+      <section class="rlr-section rlr-section__mb">
+        <div class="container">
+          <!-- Swiper -->
+          <div class="rlr-carousel__items">
+            <div class="swiper rlr-js-product-card-swiper">
+              <!-- Carousel header -->
+              <div class="rlr-section-header">
+                <!-- Section heading -->
+                <div class="rlr-section__title">
+                  <h2 class="rlr-section__title--main">2023 行程預購</h2>
+                  <span class="rlr-section__title--sub">2022各大旅行社合作機加酒優惠組合目前已搶購一空，2023機加酒行程已釋出！預購從速。</span>
+                </div>
+                <div class="button-row">
+                  <button type="button" class="btn rlr-button button button--previous rlr-button--carousel" aria-label="Previous">
+                    <i class="rlr-icon-font flaticon-left-chevron"> </i>
+                  </button>
+                  <div class="button-group button-group--cells">
+                    <button class="button is-selected">1</button>
+                    <button class="button">2</button>
+                  </div>
+                  <button type="button" class="btn rlr-button button button--next rlr-button--carousel" aria-label="Next">
+                    <i class="rlr-icon-font flaticon-chevron"> </i>
+                  </button>
+                </div>
+              </div>
+              <div id="productContent" class="swiper-wrapper">
+                
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <!-- Destination Masonary Grid -->
+      <section class="rlr-section rlr-section__mb">
+        <div class="container">
+          <!-- Section heading -->
+          <div class="rlr-section__title">
+            <h2 class="rlr-section__title--main">熱銷景點</h2>
+            <span class="rlr-section__title--sub">2023精選亞洲熱門網美網紅旅遊打卡景點，走訪日本、韓國、泰國、印尼、越南、馬來西雅、新加坡自助旅遊，週末假日、連假出遊趕緊計劃跟家人朋友一起出外踏青出遊散心去！</span>
+          </div>
+          <div class="rlr-masonary-grid__container">
+            <div class="rlr-masonary-grid__one">
+              <!-- Destination card -->
+              <a class="rlr-destination-card" href="./search-results--left-sidebar.html">
+                <img data-sizes="auto" data-src="./assets/images/misc/batch_P1040173.jpg" data-srcset="./assets/images/misc/batch_P1040173.jpg" class="rlr-destination-card__img lazyload" alt="..." />
+                <span class="rlr-badge rlr-badge--left rlr-badge-- rlr-badge--abs rlr-badge--abs-dest"> 200+ </span>
+                <div class="rlr-destination-card__info rlr-destination-card__info--left rlr-destination-card__info--bottom">
+                  <h2 class="rlr-destination-card__info--main">長灘島</h2>
+                  <p class="rlr-destination-card__info--sub">366 KM away</p>
+                </div>
+              </a>
+            </div>
+            <div class="rlr-masonary-grid__two">
+              <!-- Destination card -->
+              <a class="rlr-destination-card" href="./search-results--left-sidebar.html">
+                <img data-sizes="auto" data-src="./assets/images/misc/tokyo.webp" data-srcset="./assets/images/misc/tokyo.webp" class="rlr-destination-card__img lazyload" alt="..." />
+                <span class="rlr-badge rlr-badge--left rlr-badge-- rlr-badge--abs rlr-badge--abs-dest"> 320 Tours </span>
+                <div class="rlr-destination-card__info rlr-destination-card__info--left rlr-destination-card__info--bottom">
+                  <h2 class="rlr-destination-card__info--main">東京</h2>
+                  <p class="rlr-destination-card__info--sub">577 KM away</p>
+                </div>
+              </a>
+            </div>
+            <div class="rlr-masonary-grid__three">
+              <!-- Destination card -->
+              <a class="rlr-destination-card" href="./search-results--left-sidebar.html">
+                <img data-sizes="auto" data-src="./assets/images/misc/jindu.jpeg" data-srcset="./assets/images/misc/jindu.jpeg" class="rlr-destination-card__img lazyload" alt="..." />
+                <span class="rlr-badge rlr-badge--left rlr-badge-- rlr-badge--abs rlr-badge--abs-dest"> 58 Tours </span>
+                <div class="rlr-destination-card__info rlr-destination-card__info--left rlr-destination-card__info--bottom">
+                  <h2 class="rlr-destination-card__info--main">京都</h2>
+                  <p class="rlr-destination-card__info--sub">327 KM away</p>
+                </div>
+              </a>
+            </div>
+            <div class="rlr-masonary-grid__four">
+              <!-- Destination card -->
+              <a class="rlr-destination-card" href="./search-results--left-sidebar.html">
+                <img data-sizes="auto" data-src="./assets/images/misc/singapor.jpeg" data-srcset="./assets/images/misc/singapor.jpeg" class="rlr-destination-card__img lazyload" alt="..." />
+                <span class="rlr-badge rlr-badge--left rlr-badge-- rlr-badge--abs rlr-badge--abs-dest"> 406 Tours </span>
+                <div class="rlr-destination-card__info rlr-destination-card__info--left rlr-destination-card__info--bottom">
+                  <h2 class="rlr-destination-card__info--main">新加坡</h2>
+                  <p class="rlr-destination-card__info--sub">271 KM away</p>
+                </div>
+              </a>
+            </div>
+            <div class="rlr-masonary-grid__five">
+              <!-- Destination card -->
+              <a class="rlr-destination-card" href="./search-results--left-sidebar.html">
+                <img data-sizes="auto" data-src="./assets/images/misc/sumei.png" data-srcset="./assets/images/misc/sumei.png" class="rlr-destination-card__img lazyload" alt="..." />
+                <span class="rlr-badge rlr-badge--left rlr-badge-- rlr-badge--abs rlr-badge--abs-dest"> 37 Tours </span>
+                <div class="rlr-destination-card__info rlr-destination-card__info--left rlr-destination-card__info--bottom">
+                  <h2 class="rlr-destination-card__info--main">蘇美島</h2>
+                  <p class="rlr-destination-card__info--sub">780 KM away</p>
+                </div>
+              </a>
+            </div>
+            <div class="rlr-masonary-grid__six">
+              <!-- Destination card -->
+              <a class="rlr-destination-card" href="./search-results--left-sidebar.html">
+                <img data-sizes="auto" data-src="./assets/images/misc/puji.jpeg" data-srcset="./assets/images/misc/puji.jpeg" class="rlr-destination-card__img lazyload" alt="..." />
+                <span class="rlr-badge rlr-badge--left rlr-badge-- rlr-badge--abs rlr-badge--abs-dest"> 74 Tours </span>
+                <div class="rlr-destination-card__info rlr-destination-card__info--left rlr-destination-card__info--bottom">
+                  <h2 class="rlr-destination-card__info--main">普吉島</h2>
+                  <p class="rlr-destination-card__info--sub">872 KM away</p>
+                </div>
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+      <section id="features" class="rlr-section rlr-section__mb landding__plugin">
+        <div class="container">
+          <!-- Logo Carousel -->
+          <div class="rlr-section__title">
+            <h2 class="rlr-section__title--main">合作廠商</h2>
+            <span class="rlr-section__title--sub">重磅合作，網羅全台最優惠旅遊組合，各式行程75折起，最低促銷價6折血虧上架</span>
+          </div>
+          <div class="rlr-logos-slider">
+            <div class="rlr-logos-slider__items">
+              <div class="slide-track">
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/mountain.svg" width="187px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/xihon.svg" width="227px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/lion.jpg" width="240px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/cola.svg" width="187px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/yahoo.png" width="187px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/settour.png" width="267px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/kkday.svg" width="187px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/partner/star.svg" width="187px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/logos/national-geographic.png" width="187px" height="64px" alt="partner logo" />
+                </div>
+                <div class="slide">
+                  <img data-sizes="auto" class="lazyload" data-src="./assets/images/logos/trivago.png" width="187px" height="64px" alt="partner logo" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      
+    </main>
+    <!-- Footer -->
+    <footer class="rlr-footer rlr-section rlr-section__mt">
+      <div class="container">
+        <div class="rlr-footer__getintouch">
+          <div class="rlr-footer__getintouch_col rlr-footer__getintouch__col--title">
+            <h4>預遊網</h4>
+            <p>滿足你對旅行的想像</p>
+          </div>
+          
+        </div>
+        <!-- Footer menu -->
+        <div class="rlr-footer__menu">
+          <nav class="rlr-footer__menu__col">
+            <!-- Footer menu col -->
+            <h4>Services</h4>
+            <ul>
+              <li><a href="#">Budget Tours</a></li>
+              <li><a href="#">Expert Insight</a></li>
+              <li><a href="#">Independent</a></li>
+              <li><a href="#">Luxury Tours</a></li>
+              <li><a href="#">Safety Tips</a></li>
+              <li><a href="#">Tips n Tricks</a></li>
+            </ul>
+          </nav>
+          <nav class="rlr-footer__menu__col">
+            <!-- Footer menu col -->
+            <h4>Adventures</h4>
+            <ul>
+              <li><a href="#">Beach Activity</a></li>
+              <li><a href="#">Bungee Jump</a></li>
+              <li><a href="#">City Tour</a></li>
+              <li><a href="#">Hiking Trips</a></li>
+              <li><a href="#">Jungle Safari</a></li>
+              <li><a href="#">Night City Walk</a></li>
+            </ul>
+          </nav>
+          <nav class="rlr-footer__menu__col">
+            <!-- Footer menu col -->
+            <h4>Country</h4>
+            <ul>
+              <li><a href="#">USA</a></li>
+              <li><a href="#">Australia</a></li>
+              <li><a href="#">South Africa</a></li>
+              <li><a href="#">West Indies</a></li>
+              <li><a href="#">New Zealand</a></li>
+              <li><a href="#">Srilanka</a></li>
+            </ul>
+          </nav>
+          <!-- Subscribe -->
+          <nav class="rlr-footer__menu__col rlr-footer__menu__col--lg">
+            <h4>合作洽詢</h4>
+            <a href="#" class="rlr-footer__menu__col__letstalk">行程推廣敬請洽詢</a>
+            <form class="rlr-subscribe" data-aos="fade-up" data-aos-offset="250" data-aos-duration="700">
+              <input type="email" class="rlr-subscribe__input" placeholder="Enter your email" />
+              <button class="btn">立即洽詢</button>
+            </form>
+          </nav>
+        </div>
+        <!-- Footer bottom -->
+        <div class="rlr-footer__legal">
+          <div class="rlr-footer__legal__row rlr-footer__legal__row--top">
+            <div class="rlr-footer__legal__row__col">
+              <a href="#">隱私權宣告</a>
+            </div>
+            
+          </div>
+          <!-- Footer copyright -->
+          <div class="rlr-footer__legal__row rlr-footer__legal__row--bottom">
+            <div class="rlr-footer__legal__row__col">
+              <span>2022 © 預遊網</span>
+            </div>
+            <!-- Footer payment thumbs -->
+            <div class="rlr-footer__legal__row__col">
+              <img src="./assets/images/ele-payments.png" alt="Payments" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="./vendors/navx/js/navigation.min.js" defer></script>
+    <script src="./js/main.js" defer></script>
+    <script src="./js/jquery-3.6.1.min.js" defer></script>
+    <script src="./js/jquery.flexslider-min.js" defer></script>
+    <script>
+
+      $(function() {
+        addAllBanner();
+        createSwiper();
+      });
+
+      function addAllBanner() {
+        for(let i=0;i<10;i++) {
+          let banner = createBanner('banner-' + (i+1) + '.png');
+          let ls = $(".slides").html();
+          $(".slides").html(ls + banner);
+        }
+        $('#flexslider').flexslider({
+          animation: "fade"
+        });
+        $(".flex-direction-nav").hide();
+      }
+
+      function createSwiper(title = "曼谷淫亂趴", subtitle1 = "巴拉巴拉", subtitle2 = "包幹", discountInfo = "8折搶購中", price = 9999, starInfo = '4.7 (577)', days = '3天2夜', infos = ['包吃', '包住', '包車', '包票']) {
+        let content = '<div class="swiper-slide">';
+          content += '<article class="rlr-product-card rlr-product-card--v3" itemscope itemtype="https://schema.org/Product">';
+            content += '<figure class="rlr-product-card__image-wrapper">';
+              content += '<span class="rlr-badge rlr-badge-- rlr-badge--accent-red rlr-product-card__badge"> ' + discountInfo + ' </span>';
+              content += '<div class="rlr-product-detail-header__button-wrapper">';
+                content += '<button type="button" class="btn rlr-button rlr-button--circle rlr-wishlist rlr-wishlist-button--light rlr-wishlist-button rlr-js-action-wishlist" aria-label="Save to Wishlist">';
+                  content += '<i class="rlr-icon-font flaticon-heart-1"> </i>';
+                  content += '</button>';
+                content += '<span class="rlr-product-detail-header__helptext rlr-js-helptext"></span>';
+                content += '</div>';
+              content += '<a href="./product-detail-page.html">';
+                content += '<div class="swiper rlr-js-product-multi-image-swiper">';
+                  content += '<div class="swiper-wrapper">';
+                    content += '<div class="swiper-slide">';
+                      content += '<img itemprop="image" data-sizes="auto" data-src="./assets/images/product-images/small/01.jpg" data-srcset="./assets/images/product-images/small/01.jpg" class="lazyload" alt="product-image" />';
+                      content += '</div>';
+                    content += '<div class="swiper-slide">';
+                      content += '  <img itemprop="image" data-sizes="auto" data-src="./assets/images/product-images/small/02.jpg" data-srcset="./assets/images/product-images/small/02.jpg" class="lazyload" alt="product-image" />';
+                      content += ' </div>';
+                    content += ' <div class="swiper-slide">';
+                      content += '  <img itemprop="image" data-sizes="auto" data-src="./assets/images/product-images/small/03.jpg" data-srcset="./assets/images/product-images/small/03.jpg" class="lazyload" alt="product-image" />';
+                      content += ' </div>';
+                    content += ' </div>';
+                  content += ' <button type="button" class="btn rlr-button splide__arrow splide__arrow--prev" aria-label="prev button">';
+                    content += ' <i class="rlr-icon-font flaticon-left-chevron"> </i>';
+                    content += '</button>';
+                  content += '<button type="button" class="btn rlr-button splide__arrow splide__arrow--next" aria-label="next button">';
+                    content += '<i class="rlr-icon-font flaticon-chevron"> </i>';
+                    content += ' </button>';
+                  content += '</div>';
+                content += ' </a>';
+              content += '</figure>';
+            content += '<div class="rlr-product-card__detail-wrapper rlr-js-detail-wrapper">';
+              content += '<header class="rlr-product-card__header">';
+                content += '<div>';
+                  content += '<a href="./product-detail-page.html" class="rlr-product-card__anchor-title">';
+                    content += '<h2 class="rlr-product-card__title" itemprop="name">' + title + '</h2>';
+                    content += '</a>';
+                  content += '<div>';
+                    content += ' <a href="./product-detail-page.html" class="rlr-product-card__anchor-cat">';
+                      content += '<span class="rlr-product-card__sub-title">' + subtitle1 + '</span>';
+                      content += '</a>';
+                    content += '<span class="rlr-product-card__sub-title">|</span>';
+                    content += '<a href="./product-detail-page.html" class="rlr-product-card__anchor-sub-cat">';
+                      content += '<span class="rlr-product-card__sub-title">' + subtitle2 + '</span>';
+                      content += '</a>';
+                    content += '</div>';
+                  content += '</div>';
+                content += '</header>';
+              content += '<div class="rlr-product-card__details">';
+                content += '<div class="rlr-product-card__prices" itemprop="offers" itemscope itemtype="https://schema.org/Offer">';
+                  content += '<span class="rlr-product-card__from">價格 </span>';
+                  content += '<span class="rlr-product-card__price"> <mark itemprop="priceCurrency">$</mark><mark itemprop="price">' + price + '</mark> </span>';
+                  content += '</div>';
+                content += '<div class="rlr-product-card__ratings" itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating">';
+                  content += '<div class="rlr-review-stars" itemprop="ratingValue" itemscope itemtype="https://schema.org/Product">';
+                    content += '<i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star-1"> </i> <i class="rlr-icon-font flaticon-star"> </i>';
+                    content += '</div>';
+                  content += '<span class="rlr-product-card__rating-text" itemprop="reviewCount">' + starInfo + '</span>';
+                  content += '</div>';
+                content += '</div>';
+              content += '<div class="rlr-product-card__footer">';
+                content += '<div class="rlr-icon-text rlr-product-card__icon-text"><i class="rlr-icon-font flaticon-three-o-clock-clock"> </i> <span class="">' + days + '</span></div>';
+                content += '<ul class="rlr-product-card__icon-text-list">';
+                  for(info of infos) {
+                    content += '<li class="rlr-icon-text rlr-product-card__icon-text"><i class="rlr-icon-font flaticon-check"> </i> <span class="rlr-icon-text__title">' + info + '</span></li>';
+                  }
+                  content += '</ul>';
+                content += '</div>';
+              content += '</div>';
+            content += '</article>';
+        content += '</div>';
+
+        let src = $("#productContent").html();
+        $("#productContent").html(src + content);
+      }
+
+      function createBanner(fn) {
+        let content = '<li style="display: none">';
+              content += '<a href="http://www.freshdesignweb.com"><img src="assets/images/banner/' + fn + '" alt="" title=""/></a>';
+              content += '<div class="flex-caption">';
+                  content += '<div class="caption_title_line"></div>';
+              content += '</div>';
+            content += '</li>';
+        return content;
+      }
+    </script>
+  </body>
+</html>
