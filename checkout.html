@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Your vacation, tours and travel theme needs are all met at emprise." />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta http-equiv="Expires" content="0" />
+    <title>結帳 | 快樂遊</title>
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/png" href="./assets/favicon.ico" />
+    <!-- Plugins CSS -->
+    <link rel="stylesheet" href="./styles/plugins.css" />
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="./styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="./styles/flexslider.css" media="all" />
+    <script src="./js/jquery-2.1.1.min.js"></script>
+  </head>
+
+  <body class="rlr-body">
+    <!-- Header -->
+    <header>
+      <nav id="navigation" class="navigation rlr-navigation default-nav fixed-top">
+        <!-- Logo -->
+        <div class="navigation-header">
+          <div class="navigation-brand-text">
+            <div class="rlr-logo rlr-logo__navbar-brand rlr-logo--default">
+              <a href="./index.html">
+                <img src="./assets/logo.png" alt="#" style="width: 70px" class="" />
+              </a>
+            </div>
+          </div>
+          <div class="navigation-button-toggler">
+            <span class="rlr-sVGIcon"> <i class="rlr-icon-font rlr-icon-font--megamenu flaticon-menu"> </i> </span>
+          </div>
+        </div>
+        <div class="navigation-body rlr-navigation__body container">
+          <div class="navigation-body-header rlr-navigation__body-header">
+            <div class="navigation-brand-text">
+              <div class="rlr-logo rlr-logo__navbar-brand rlr-logo--default">
+                <a href="./index.html">
+                  <img src="./assets/logo.png" alt="#" style="height: 70px" class="" />
+                </a>
+              </div>
+            </div>
+            <span class="rlr-sVGIcon navigation-body-close-button"> <i class="rlr-icon-font rlr-icon-font--megamenu flaticon-close"> </i> </span>
+          </div>
+
+            <!-- User account dropdown -->
+            <li class="navigation-item" style="display: none">
+              <a class="navigation-link" href="#"> User <img class="ui right spaced avatar image" src="./assets/images/avatar.png" alt="account avatar" /> </a>
+              <ul class="navigation-dropdown">
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./my-account-pages--dashboard.html">我的檔案</a>
+                </li>
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./my-account-pages--order.html">我的訂單</a>
+                </li>
+                <li class="navigation-dropdown-item">
+                  <hr class="dropdown-divider rlr-dropdown__divider" />
+                </li>
+                <li class="navigation-dropdown-item">
+                  <a class="navigation-dropdown-link" href="./account-pages--login.html">登出</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+    <!-- Main Content -->
+    <main id="rlr-main" class="rlr-main--fixed-top">
+      <div class="rlr-section__content--md-top">
+        <div class="rlr-section rlr-section__my">
+          <div class="rlr-checkout">
+            <article id="post-7" class="post-7 page type-page status-publish hentry">
+              <div class="container-xxl">
+                <div class="entry-content">
+                  <div class="woocommerce">
+                    <div class="woocommerce-info">
+                      <div class="rlr-page-title">
+                        <span class="rlr-page-title__icon"> <i class="rlr-icon-font flaticon-carbon-shopping-cart"> </i> </span>
+                        <div>
+                          <h2 class="type-h3 rlr-page-title__title">結帳</h2>
+                          <span class="rlr-page-title__desc">請儘速完成結帳資訊填寫以確保名額確立</span>
+                        </div>
+                      </div>
+                    </div>
+                    <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display: none">
+                      <p>If you have a coupon code, please apply it below.</p>
+                      <p class="form-row form-row-first">
+                        <input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" id="coupon_code" value="" />
+                      </p>
+                      <p class="form-row form-row-last">
+                        <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
+                      </p>
+                      <div class="clear"></div>
+                    </form>
+                    <div class="woocommerce-notices-wrapper"></div>
+                    <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://ui.emprise.tours/order-received/" enctype="multipart/form-data" novalidate="novalidate">
+                      <div class="col2-set" id="customer_details">
+                        <div class="col-1">
+                          <div class="woocommerce-billing-fields">
+                            <div class="woocommerce-billing-fields__field-wrapper">
+                              <h6 class="checkout__section-title">
+                                <span> 個人資訊 </span>
+                              </h6>
+                              <div class="checkout__personal-details">
+                                <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
+                                  <label for="billing_first_name" class=""> 姓氏 </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" placeholder="王" value="" autocomplete="given-name" />
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-last validate-required" id="billing_last_name_field" data-priority="20">
+                                  <label for="billing_last_name" class=""> 名字 </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_last_name" id="billing_last_name" placeholder="小明" value="" autocomplete="family-name" />
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="100">
+                                  <label for="billing_phone" class=""> 手機號碼 </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="tel" class="input-text" name="billing_phone" id="billing_phone" placeholder="0900000000" value="" autocomplete="tel" />
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-wide validate-required validate-email" id="billing_email_field" data-priority="110">
+                                  <label for="billing_email" class=""> Email（訂單寄送） </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="email" class="input-text" name="billing_email" id="billing_email" placeholder="請確保填寫正確以接收訂單資訊" value="" autocomplete="email" />
+                                  </span>
+                                </p>
+                               
+                              </div>
+                              <h6 class="checkout__section-title">
+                                <span> Delivery Details </span>
+                              </h6>
+                              <div class="checkout__delivery-details">
+                                <p class="form-row address-field street-address-1 validate-required form-row-wide" id="billing_address_1_field" data-priority="50">
+                                  <label for="billing_address_1" class=""> Street address </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" data-placeholder="House number and street name" />
+                                  </span>
+                                </p>
+                                <p class="form-row address-field validate-required form-row-wide" id="billing_city_field" data-priority="70" data-o_class="form-row form-row-wide address-field validate-required">
+                                  <label for="billing_city" class=""> Town/City </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_city" id="billing_city" placeholder="Enter town/city" value="" autocomplete="address-level2" />
+                                  </span>
+                                </p>
+                                <p class="form-row address-field form-row-wide" id="billing_address_2_field" data-priority="60">
+                                  <label for="billing_address_2" class="screen-reader-text"> State </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_address_2" id="billing_address_2" placeholder="Enter State" value="" autocomplete="address-line2" data-placeholder="Enter State" />
+                                  </span>
+                                </p>
+                                <div class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
+                                  <label for="billing_country"> Country </label>
+                                  <div class="woocommerce-input-wrapper">
+                                    <select
+                                      name="billing_country"
+                                      id="billing_country"
+                                      class="country_to_state country_select select2-hidden-accessible"
+                                      autocomplete="country"
+                                      data-placeholder="Select a country / region…"
+                                      data-label="Country / Region"
+                                      tabindex="-1"
+                                      aria-hidden="true"
+                                    >
+                                      <option value="" selected="selected">Select country</option>
+                                      <option value="AF">Afghanistan</option>
+                                      <option value="AX">Åland Islands</option>
+                                      <option value="AL">Albania</option>
+                                      <option value="DZ">Algeria</option>
+                                      <option value="AS">American Samoa</option>
+                                      <option value="AD">Andorra</option>
+                                      <option value="AO">Angola</option>
+                                      <option value="AI">Anguilla</option>
+                                      <option value="AQ">Antarctica</option>
+                                      <option value="AG">Antigua and Barbuda</option>
+                                      <option value="AR">Argentina</option>
+                                      <option value="AM">Armenia</option>
+                                      <option value="AW">Aruba</option>
+                                      <option value="AU">Australia</option>
+                                      <option value="AT">Austria</option>
+                                      <option value="AZ">Azerbaijan</option>
+                                      
+                                    </select>
+                                  </div>
+                                </div>
+                                <p class="form-row address-field validate-required validate-postcode form-row-wide" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
+                                  <label for="billing_postcode" class=""> Postal Code </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_postcode" id="billing_postcode" placeholder="000000" value="" autocomplete="postal-code" />
+                                  </span>
+                                </p>
+                              </div>
+                              <h6 class="checkout__section-title">
+                                <span> 付款方式</span>
+                              </h6>
+                              <div id="payment" class="woocommerce-checkout-payment">
+                                <ul class="wc_payment_methods payment_methods methods">
+                                  <li class="wc_payment_method payment_method_stripe payment-details__visa">
+                                    <label for="payment_method_stripe"> 銀行轉帳<br>收款人：快樂遊國際有限公司<br>銀行代碼：台新國際商業銀行812-延平分行0779<br>銀行帳戶：2077-010-0000970-7 </label>
+                                    <input id="payment_method_stripe" type="radio" class="input-radio" name="payment_method" value="stripe" data-order_button_text="" checked="checked" value="true" />
+                                  </li>
+                                  
+                                  <li class="wc_payment_method">
+                                    <p class="form-row woocommerce-SavedPaymentMethods-saveNew woocommerce-validated payment-details__add-card">
+                                      <label for="wc-stripe-new-payment-method" style="display: inline"> 目前暫不支援其他付款方式 </label>
+                                      <input id="wc-stripe-new-payment-method" class="input-radio" name="payment_method" type="radio" value="true" disabled />
+                                    </p>
+                                  </li>
+                                </ul>
+                                <div class="form-row place-order">
+                                  <noscript>
+                                    Since your browser does not support JavaScript, or it is disabled, please ensure you click the
+                                    <em> Update Totals </em>
+                                    button before placing your order. You may be charged more than the amount stated above if you fail to do so.
+                                    <br />
+                                    <button type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="Update totals">Update totals</button>
+                                  </noscript>
+                                  <div class="woocommerce-terms-and-conditions-wrapper">
+                                    <div class="woocommerce-privacy-policy-text"></div>
+                                  </div>
+                                  <input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="594806c7c0" />
+                                  <input type="hidden" name="_wp_http_referer" value="/wp/?wc-ajax=update_order_review" />
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="col-2">
+                          <div class="woocommerce-shipping-fields"></div>
+                          <div class="woocommerce-additional-fields">
+                            <h3>Additional information</h3>
+                            <div class="woocommerce-additional-fields__field-wrapper">
+                              <p class="form-row notes" id="order_comments_field" data-priority="">
+                                <label for="order_comments" class="">
+                                  Order notes
+                                  <span class="optional"> (optional) </span>
+                                </label>
+                                <span class="woocommerce-input-wrapper">
+                                  <textarea name="order_comments" class="input-text" id="order_comments" placeholder="Notes about your order, e.g. special notes for delivery." rows="2" cols="5"></textarea>
+                                </span>
+                              </p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div id="order_review" class="woocommerce-checkout-review-order">
+                        <table class="shop_table woocommerce-checkout-review-order-table">
+                          <tbody>
+                            <tr class="cart_item">
+                              <td class="product-name">
+                                <h6 class="cart-item-title">你的訂單</h6>
+                                <ul class="cart-item-card">
+                                  <li class="cart-item-card__header">
+                                    <div>
+                                      <img class="cart-item-card__img" src="./assets/images/card_items-photo.jpg" alt="..." />
+                                    </div>
+                                    <div>
+                                      <p class="cart-item-card__title">Mountain Hiking Tour</p>
+                                      <p class="cart-item-card__date">
+                                        <span> Preferred date </span>
+                                        <span> 21/04/22 </span>
+                                      </p>
+                                    </div>
+                                  </li>
+                                  <li class="cart-item-card__item">
+                                    <span class="cart-item-card__close">
+                                      <i class="rlr-icon-font flaticon-cross"></i>
+                                    </span>
+                                    <div class="cart-item-card__iconcontainer">
+                                      <span>
+                                        <i class="rlr-icon-font flaticon-carbon-user"></i>
+                                      </span>
+                                    </div>
+                                    <div class="cart-item-card__item-title">
+                                      <p>Adult</p>
+                                      <p>
+                                        <b> NT 7000 </b>
+                                      </p>
+                                    </div>
+                                    <p class="cart-item-card__item-number">
+                                      <span class="times"> x </span>
+                                      2
+                                    </p>
+                                    <p class="cart-item-card__item-price">NT 7000</p>
+                                  </li>
+                                  <li class="cart-item-card__item">
+                                    <div class="cart-item-card__iconcontainer">
+                                      <span>
+                                        <i class="rlr-icon-font flaticon-hotel-bed"></i>
+                                      </span>
+                                    </div>
+                                    <div class="cart-item-card__item-title">
+                                      <p>Single room</p>
+                                      <p>
+                                        <b> NT 3500 </b>
+                                      </p>
+                                    </div>
+                                    <p class="cart-item-card__item-number">
+                                      <span class="times"> x </span>
+                                      2
+                                    </p>
+                                    <p class="cart-item-card__item-price">NT 3500</p>
+                                  </li>
+                                  <li class="cart-item-card__footer">
+                                    <p>總金額</p>
+                                    <p>NT 10,500</p>
+                                  </li>
+                                </ul>
+                              </td>
+                            </tr>
+                          </tbody>
+                          <tfoot>
+                            
+                            <tr class="order-total">
+                              <th>結帳總金額</th>
+                              <td>
+                                <strong>
+                                  <span class="woocommerce-Price-amount amount">
+                                    <bdi>
+                                      <span class="woocommerce-Price-currencySymbol"> 新台幣 </span>
+                                      10,500
+                                    </bdi>
+                                  </span>
+                                </strong>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">完成訂購</button>
+                              </td>
+                            </tr>
+                          </tfoot>
+                        </table>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+                <!-- .entry-content -->
+              </div>
+            </article>
+            <!-- #post-7 -->
+          </div>
+        </div>
+      </div>
+    </main>
+    <!-- Footer -->
+    <footer class="rlr-footer rlr-section rlr-section__mt">
+      <div class="container">
+        <div class="rlr-footer__getintouch">
+          <div class="rlr-footer__getintouch_col rlr-footer__getintouch__col--title">
+            <h4>預遊網</h4>
+            <p>滿足你對旅行的想像</p>
+          </div>
+          
+        </div>
+        <!-- Footer menu -->
+        <div class="rlr-footer__menu">
+          
+          <nav class="rlr-footer__menu__col">
+            <!-- Footer menu col -->
+            <h4>合作廠商</h4>
+            <ul>
+              <li><a href="https://www.liontravel.com/">雄獅旅遊</a></li>
+              <li><a href="https://www.colatour.com.tw/">可樂旅遊</a></li>
+              <li><a href="https://www.kkday.com/">KKday</a></li>
+              <li><a href="https://travel.yahoo.com.tw/">Yahoo!旅遊</a></li>
+              <li><a href="https://www.settour.com.tw/">東南旅遊</a></li>
+              <li><a href="https://www.startravel.com.tw/">燦星旅遊</a></li>
+            </ul>
+          </nav>
+          <!-- Subscribe -->
+          <nav class="rlr-footer__menu__col rlr-footer__menu__col--lg">
+            <h4>合作洽詢</h4>
+            <a href="#" class="rlr-footer__menu__col__letstalk">行程推廣敬請洽詢</a>
+            <form class="rlr-subscribe" data-aos="fade-up" data-aos-offset="250" data-aos-duration="700">
+              <input type="email" class="rlr-subscribe__input" placeholder="請輸入貴公司合作E-Mail" />
+              <button class="btn">立即洽詢</button>
+            </form>
+          </nav>
+        </div>
+        <!-- Footer bottom -->
+        <div class="rlr-footer__legal">
+          <div class="rlr-footer__legal__row rlr-footer__legal__row--top">
+            <div class="rlr-footer__legal__row__col">
+              <a href="#">隱私權宣告</a>
+            </div>
+            
+          </div>
+          <!-- Footer copyright -->
+          <div class="rlr-footer__legal__row rlr-footer__legal__row--bottom">
+            <div class="rlr-footer__legal__row__col">
+              <span>2022 © 預遊網 / 快樂遊國際有限公司 / 臺北市大同區西寧北路78之16號(八)樓</span>
+            </div>
+            <!-- Footer payment thumbs -->
+            <div class="rlr-footer__legal__row__col">
+              <img src="./assets/images/ele-payments.png" alt="Payments" />
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <!-- Scripts -->
+    <script src="./vendors/navx/js/navigation.min.js" defer></script>
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>
