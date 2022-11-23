@@ -119,7 +119,7 @@
                                 <p class="form-row form-row-wide validate-required validate-email" id="billing_email_field" data-priority="110">
                                   <label for="billing_email" class=""> Email（訂單寄送） </label>
                                   <span class="woocommerce-input-wrapper">
-                                    <input type="email" class="input-text" name="billing_email" id="billing_email" placeholder="請確保填寫正確以接收訂單資訊" value="testmail@gmail.com"  />
+                                    <input type="email" class="input-text" name="billing_email" id="billing_email" placeholder="請確保填寫正確以接收訂單資訊" value="hi@travelhappy.shop"  />
                                   </span>
                                 </p>
                                 <p class="form-row address-field street-address-1 validate-required form-row-wide" id="billing_address_1_field" data-priority="50">
@@ -345,6 +345,7 @@
     <script>
       let search = location.search.substring(1);
       let req = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      let productId = req.id;
       let price = 0;
       let count = 1;
       let totalPrice = 0;
@@ -354,7 +355,7 @@
         style: 'currency',
         currency: 'USD'
       });
-      $.getJSON("https://api.travelhappy.shop/one?id=" + req.id, function(json) {
+      $.getJSON("https://api.travelhappy.shop/one?id=" + productId, function(json) {
         if(json.success) {
           console.log(json);
           title = json.data.title;
@@ -376,15 +377,20 @@
             let flightInfo = "<b>去程 </b>" + flight.company_1 + " <b>回程 </b>" + flight.company_2;
             let formatedDate = "<b>" + flight.plane_1 + "</b> " + flight.startDate_1 + " <b>" + flight.startTime_1 + "</b>起飛 - <b>" + flight.endTime_1 + "</b>降落</br>";
             formatedDate += "<b>" + flight.plane_2 + "</b> " + flight.startDate_2 + " <b>" + flight.startTime_2 + "</b>起飛 - <b>" + flight.endTime_2 + "</b>降落";
-            addFlight(flightInfo, formatedDate);
+            addFlight(flightInfo, formatedDate, flight);
           }
         }
       });
 
-      function addFlight(masterInfo, dateInfo) {
+      let flightMap = {};
+      let currentFlight = null;
+
+      function addFlight(masterInfo, dateInfo, flight) {
+        let flightId = generateString(10);
+        flightMap[flightId] = flight;
         let content = '<li class="cart-item-card__header wc_payment_method payment_method_stripe">';
               content +='<div>';
-                content +='<input id="wc-stripe-new-payment-method" class="input-radio" name="payment_method" type="radio" value="true" />';
+                content +='<input id="wc-stripe-new-payment-method" onclick="selectFlight(\'' + flightId + '\')" class="input-radio" name="payment_method" type="radio" value="true" />';
               content +='</div>';
               content +='<div>';
                 content +='<p class="cart-item-card__title" id="_title">' + masterInfo + '</p>';
@@ -394,6 +400,21 @@
               content +='</div>';
             content +='</li>';   
         $("#planelist").append(content);
+      }
+
+      function selectFlight(id) {
+        currentFlight = flightMap[id];
+        console.log(currentFlight);
+      }
+
+      function generateString(length) {
+        const characters ='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        let result = ' ';
+        const charactersLength = characters.length;
+        for ( let i = 0; i < length; i++ ) {
+            result += characters.charAt(Math.floor(Math.random() * charactersLength));
+        }
+        return result.trim();
       }
 
       function updatePrice() {
@@ -485,6 +506,8 @@
         $.ajax({
             url: "https://api.travelhappy.shop/checkout",
             data: JSON.stringify({
+              totalPrice: totalPrice,
+              people: count,
               customer: {
                 name: name,
                 email: email,
@@ -492,28 +515,40 @@
                 address: address,
                 id: id
               },
+              flight: currentFlight,
               product: travel
             }),
             type: "POST",
             dataType: "json",
             contentType: "application/json;charset=utf-8",
-            success: function(returnData){
-                console.log(returnData);
+            success: function(rtv){
+                if(rtv.success) {
+                  //payPage(productId);
+                }
             },
             error: function(xhr, ajaxOptions, thrownError){
                 console.log(xhr.status);
                 console.log(thrownError);
             }
         });
+        
+      }
+
+      function payPage(productId) {
         let baseUrl = "https://ssl.smse.com.tw/ezpos_test/mtmk_utf.asp";
         let customer = $("#billing_name").val();
         let tel = $("#billing_phone").val();
         let mob = $("#billing_phone").val();
+        let name = $("#billing_name").val();
+        let email = $("#billing_email").val();
+        let phone = $("#billing_phone").val();
+        let address = $("#billing_address").val();
+        let id = $("#billing_id").val();
         let invoiceName = "";
         let invoiceNum = "";
         let remark = "";
         let roturl = "https://api.travelhappy.shop/roturl";
-        let url = baseUrl + "?Rvg2c=1&Dcvc=14772&Od_sob=" + productId + "&Amount=" + amount + "&Pur_name=" + customer + "&Tel_number=" + tel + "&Mobile_number=" + mob + "&Address=" + address + "&Email=" + email + "&Invoice_name=" + invoiceName + "&Invoice_num=" + invoiceNum + "&Remark=" + remark + "&Roturl=" + roturl + "&Pay_zg=2";
+        let url = baseUrl + "?Rvg2c=1&Dcvc=14772&Od_sob=" + productId + "&Amount=" + totalPrice + "&Pur_name=" + customer + "&Tel_number=" + tel + "&Mobile_number=" + mob + "&Address=" + address + "&Email=" + email + "&Invoice_name=" + invoiceName + "&Invoice_num=" + invoiceNum + "&Remark=" + remark + "&Roturl=" + roturl + "&Pay_zg=2";
         window.open(url);
       }
     </script>
