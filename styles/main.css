@@ -12678,7 +12678,7 @@ i[class^="flaticon-"]:before {
   flex-direction: row;
 }
 .payment-details__visa:before {
-  background: url(../assets/svg/Visa.svg) no-repeat 50% 50%;
+  background: url(../assets/svg/bank.svg) no-repeat 50% 50%;
   background-size: var(--spacing-13) var(--spacing-10);
   content: "";
   display: block;

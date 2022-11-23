@@ -87,16 +87,7 @@
                         </div>
                       </div>
                     </div>
-                    <form class="checkout_coupon woocommerce-form-coupon" method="post" style="display: none">
-                      <p>If you have a coupon code, please apply it below.</p>
-                      <p class="form-row form-row-first">
-                        <input type="text" name="coupon_code" class="input-text" placeholder="Coupon code" id="coupon_code" value="" />
-                      </p>
-                      <p class="form-row form-row-last">
-                        <button type="submit" class="button" name="apply_coupon" value="Apply coupon">Apply coupon</button>
-                      </p>
-                      <div class="clear"></div>
-                    </form>
+                   
                     <div class="woocommerce-notices-wrapper"></div>
                     <form name="checkout" method="post" class="checkout woocommerce-checkout" action="https://ui.emprise.tours/order-received/" enctype="multipart/form-data" novalidate="novalidate">
                       <div class="col2-set" id="customer_details">
@@ -104,98 +95,50 @@
                           <div class="woocommerce-billing-fields">
                             <div class="woocommerce-billing-fields__field-wrapper">
                               <h6 class="checkout__section-title">
-                                <span> 個人資訊 </span>
+                                <span> 訂購人資訊 </span>
                               </h6>
                               <div class="checkout__personal-details">
                                 <p class="form-row form-row-first validate-required" id="billing_first_name_field" data-priority="10">
-                                  <label for="billing_first_name" class=""> 姓氏 </label>
+                                  <label for="billing_first_name" class=""> 姓名 </label>
                                   <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_first_name" id="billing_first_name" placeholder="王" value="" autocomplete="given-name" />
-                                  </span>
-                                </p>
-                                <p class="form-row form-row-last validate-required" id="billing_last_name_field" data-priority="20">
-                                  <label for="billing_last_name" class=""> 名字 </label>
-                                  <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_last_name" id="billing_last_name" placeholder="小明" value="" autocomplete="family-name" />
+                                    <input type="text" class="input-text" name="billing_first_name" id="billing_name" placeholder="王小明" value="王小明"  />
                                   </span>
                                 </p>
                                 <p class="form-row form-row-wide validate-required validate-phone" id="billing_phone_field" data-priority="100">
                                   <label for="billing_phone" class=""> 手機號碼 </label>
                                   <span class="woocommerce-input-wrapper">
-                                    <input type="tel" class="input-text" name="billing_phone" id="billing_phone" placeholder="0900000000" value="" autocomplete="tel" />
+                                    <input type="tel" class="input-text" name="billing_phone" id="billing_phone" placeholder="0900000000" value="0900000000"  />
+                                  </span>
+                                </p>
+                                <p class="form-row form-row-first validate-required" id="billing_user_id_field" data-priority="10">
+                                  <label for="billing_first_name" class=""> 身分證字號 </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_first_name" id="billing_id" placeholder="A123456789" value="A123456789"  />
                                   </span>
                                 </p>
                                 <p class="form-row form-row-wide validate-required validate-email" id="billing_email_field" data-priority="110">
                                   <label for="billing_email" class=""> Email（訂單寄送） </label>
                                   <span class="woocommerce-input-wrapper">
-                                    <input type="email" class="input-text" name="billing_email" id="billing_email" placeholder="請確保填寫正確以接收訂單資訊" value="" autocomplete="email" />
+                                    <input type="email" class="input-text" name="billing_email" id="billing_email" placeholder="請確保填寫正確以接收訂單資訊" value="testmail@gmail.com"  />
                                   </span>
                                 </p>
-                               
+                                <p class="form-row address-field street-address-1 validate-required form-row-wide" id="billing_address_1_field" data-priority="50">
+                                  <label for="billing_address_1" class=""> 地址 </label>
+                                  <span class="woocommerce-input-wrapper">
+                                    <input type="text" class="input-text" name="billing_address_1" id="billing_address" placeholder="發票寄送地址" value="台北市信義區忠孝東路四段334號"  data-placeholder="House number and street name" />
+                                  </span>
+                                </p>
                               </div>
                               <h6 class="checkout__section-title">
-                                <span> Delivery Details </span>
+                                <span> 選擇班機 </span>
                               </h6>
-                              <div class="checkout__delivery-details">
-                                <p class="form-row address-field street-address-1 validate-required form-row-wide" id="billing_address_1_field" data-priority="50">
-                                  <label for="billing_address_1" class=""> Street address </label>
-                                  <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_address_1" id="billing_address_1" placeholder="House number and street name" value="" autocomplete="address-line1" data-placeholder="House number and street name" />
-                                  </span>
-                                </p>
-                                <p class="form-row address-field validate-required form-row-wide" id="billing_city_field" data-priority="70" data-o_class="form-row form-row-wide address-field validate-required">
-                                  <label for="billing_city" class=""> Town/City </label>
-                                  <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_city" id="billing_city" placeholder="Enter town/city" value="" autocomplete="address-level2" />
-                                  </span>
-                                </p>
-                                <p class="form-row address-field form-row-wide" id="billing_address_2_field" data-priority="60">
-                                  <label for="billing_address_2" class="screen-reader-text"> State </label>
-                                  <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_address_2" id="billing_address_2" placeholder="Enter State" value="" autocomplete="address-line2" data-placeholder="Enter State" />
-                                  </span>
-                                </p>
-                                <div class="form-row form-row-wide address-field update_totals_on_change validate-required" id="billing_country_field" data-priority="40">
-                                  <label for="billing_country"> Country </label>
-                                  <div class="woocommerce-input-wrapper">
-                                    <select
-                                      name="billing_country"
-                                      id="billing_country"
-                                      class="country_to_state country_select select2-hidden-accessible"
-                                      autocomplete="country"
-                                      data-placeholder="Select a country / region…"
-                                      data-label="Country / Region"
-                                      tabindex="-1"
-                                      aria-hidden="true"
-                                    >
-                                      <option value="" selected="selected">Select country</option>
-                                      <option value="AF">Afghanistan</option>
-                                      <option value="AX">Åland Islands</option>
-                                      <option value="AL">Albania</option>
-                                      <option value="DZ">Algeria</option>
-                                      <option value="AS">American Samoa</option>
-                                      <option value="AD">Andorra</option>
-                                      <option value="AO">Angola</option>
-                                      <option value="AI">Anguilla</option>
-                                      <option value="AQ">Antarctica</option>
-                                      <option value="AG">Antigua and Barbuda</option>
-                                      <option value="AR">Argentina</option>
-                                      <option value="AM">Armenia</option>
-                                      <option value="AW">Aruba</option>
-                                      <option value="AU">Australia</option>
-                                      <option value="AT">Austria</option>
-                                      <option value="AZ">Azerbaijan</option>
-                                      
-                                    </select>
-                                  </div>
-                                </div>
-                                <p class="form-row address-field validate-required validate-postcode form-row-wide" id="billing_postcode_field" data-priority="90" data-o_class="form-row form-row-wide address-field validate-required validate-postcode">
-                                  <label for="billing_postcode" class=""> Postal Code </label>
-                                  <span class="woocommerce-input-wrapper">
-                                    <input type="text" class="input-text" name="billing_postcode" id="billing_postcode" placeholder="000000" value="" autocomplete="postal-code" />
-                                  </span>
-                                </p>
+                              <div id="payment" class="woocommerce-checkout-payment">
+                                <ul id="planelist" class="wc_payment_methods payment_methods methods">
+                                  
+                                </ul>
+                                
                               </div>
+                              <!--
                               <h6 class="checkout__section-title">
                                 <span> 付款方式</span>
                               </h6>
@@ -228,6 +171,7 @@
                                   <input type="hidden" name="_wp_http_referer" value="/wp/?wc-ajax=update_order_review" />
                                 </div>
                               </div>
+                              -->
                             </div>
                           </div>
                         </div>
@@ -249,7 +193,7 @@
                           </div>
                         </div>
                       </div>
-                      <div id="order_review" class="woocommerce-checkout-review-order">
+                      <div id="order_review" class="woocommerce-checkout-review-order" style="display: none;">
                         <table class="shop_table woocommerce-checkout-review-order-table">
                           <tbody>
                             <tr class="cart_item">
@@ -258,13 +202,13 @@
                                 <ul class="cart-item-card">
                                   <li class="cart-item-card__header">
                                     <div>
-                                      <img class="cart-item-card__img" src="./assets/images/card_items-photo.jpg" alt="..." />
+                                      <img id="_img" class="cart-item-card__img" src="./assets/images/card_items-photo.jpg" alt="..." />
                                     </div>
                                     <div>
-                                      <p class="cart-item-card__title">Mountain Hiking Tour</p>
+                                      <p class="cart-item-card__title" id="_title">Mountain Hiking Tour</p>
                                       <p class="cart-item-card__date">
-                                        <span> Preferred date </span>
-                                        <span> 21/04/22 </span>
+                                        <span id="_subtitle"> Preferred date </span>
+                                        <span id="_date"> 21/04/22 </span>
                                       </p>
                                     </div>
                                   </li>
@@ -278,38 +222,28 @@
                                       </span>
                                     </div>
                                     <div class="cart-item-card__item-title">
-                                      <p>Adult</p>
+                                      <p>成人</p>
                                       <p>
-                                        <b> NT 7000 </b>
+                                        <b id="_price"> NT 7000 </b>
                                       </p>
                                     </div>
                                     <p class="cart-item-card__item-number">
                                       <span class="times"> x </span>
-                                      2
+                                      <select id="pselect" onchange="updatePrice()">
+                                        <option value="1" selected>1人</option>
+                                        <option value="2">2人</option>
+                                        <option value="3">3人</option>
+                                        <option value="4">4人</option>
+                                        <option value="5">5人</option>
+                                        <option value="6">6人</option>
+                                      </select>
                                     </p>
-                                    <p class="cart-item-card__item-price">NT 7000</p>
+                                    <p id="_total1" class="cart-item-card__item-price">NT 7000</p>
                                   </li>
-                                  <li class="cart-item-card__item">
-                                    <div class="cart-item-card__iconcontainer">
-                                      <span>
-                                        <i class="rlr-icon-font flaticon-hotel-bed"></i>
-                                      </span>
-                                    </div>
-                                    <div class="cart-item-card__item-title">
-                                      <p>Single room</p>
-                                      <p>
-                                        <b> NT 3500 </b>
-                                      </p>
-                                    </div>
-                                    <p class="cart-item-card__item-number">
-                                      <span class="times"> x </span>
-                                      2
-                                    </p>
-                                    <p class="cart-item-card__item-price">NT 3500</p>
-                                  </li>
+                                  
                                   <li class="cart-item-card__footer">
                                     <p>總金額</p>
-                                    <p>NT 10,500</p>
+                                    <p id="_total2">NT 10,500</p>
                                   </li>
                                 </ul>
                               </td>
@@ -324,7 +258,7 @@
                                   <span class="woocommerce-Price-amount amount">
                                     <bdi>
                                       <span class="woocommerce-Price-currencySymbol"> 新台幣 </span>
-                                      10,500
+                                      <total id="totalAmount"></total>
                                     </bdi>
                                   </span>
                                 </strong>
@@ -332,7 +266,7 @@
                             </tr>
                             <tr>
                               <td>
-                                <button type="submit" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order" data-value="Place order">完成訂購</button>
+                                <button type="button" onclick="checkform()" class="button alt" name="woocommerce_checkout_place_order" id="place_order" value="Place order">完成預定</button>
                               </td>
                             </tr>
                           </tfoot>
@@ -408,5 +342,180 @@
     <!-- Scripts -->
     <script src="./vendors/navx/js/navigation.min.js" defer></script>
     <script src="./js/main.js" defer></script>
+    <script>
+      let search = location.search.substring(1);
+      let req = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
+      let price = 0;
+      let count = 1;
+      let totalPrice = 0;
+      let title = "";
+      let travel = {};
+      const formatter = new Intl.NumberFormat('en-US', {
+        style: 'currency',
+        currency: 'USD'
+      });
+      $.getJSON("https://api.travelhappy.shop/one?id=" + req.id, function(json) {
+        if(json.success) {
+          console.log(json);
+          title = json.data.title;
+          travel = json.data;
+          $("#_title").html(title);
+          $("#_subtitle").html(json.data.sub1 + "|" + json.data.sub2);
+          $("#_img").attr("src", "https://api.travelhappy.shop/img/" + json.data.img);
+          price = parseInt(json.data.price.replaceAll(",", "").replaceAll(".", ""));
+          count = parseInt($("#pselect").val());
+          totalPrice = price * count;
+          let total = formatter.format(totalPrice).replaceAll("$", "").replaceAll(".00", "");
+          $("#_total1").html("NT " + total);
+          $("#_total2").html("NT " + total);
+          $("#totalAmount").html("NT " + total);
+          $("#_price").html("NT " + json.data.price);
+          $("#order_review").show();
+          let flights = json.data.dates;
+          for(let flight of flights) {
+            let flightInfo = "<b>去程 </b>" + flight.company_1 + " <b>回程 </b>" + flight.company_2;
+            let formatedDate = "<b>" + flight.plane_1 + "</b> " + flight.startDate_1 + " <b>" + flight.startTime_1 + "</b>起飛 - <b>" + flight.endTime_1 + "</b>降落</br>";
+            formatedDate += "<b>" + flight.plane_2 + "</b> " + flight.startDate_2 + " <b>" + flight.startTime_2 + "</b>起飛 - <b>" + flight.endTime_2 + "</b>降落";
+            addFlight(flightInfo, formatedDate);
+          }
+        }
+      });
+
+      function addFlight(masterInfo, dateInfo) {
+        let content = '<li class="cart-item-card__header wc_payment_method payment_method_stripe">';
+              content +='<div>';
+                content +='<input id="wc-stripe-new-payment-method" class="input-radio" name="payment_method" type="radio" value="true" />';
+              content +='</div>';
+              content +='<div>';
+                content +='<p class="cart-item-card__title" id="_title">' + masterInfo + '</p>';
+                content +='<p class="cart-item-card__date">';
+                  content +='<span id="_date"> ' + dateInfo + ' </span>';
+                content +='</p>';
+              content +='</div>';
+            content +='</li>';   
+        $("#planelist").append(content);
+      }
+
+      function updatePrice() {
+        count = parseInt($("#pselect").val());
+        $("#_total1").html("NT " + (price * count));
+        $("#_total2").html("NT " + (price * count));
+      }
+
+      function checkform() {
+        let name = $("#billing_name").val();
+        let email = $("#billing_email").val();
+        let phone = $("#billing_phone").val();
+        let address = $("#billing_address").val();
+        let id = $("#billing_id").val();
+        if(name.length == 0) {
+          alert("請輸入姓名");
+          return false;
+        }
+        if(phone.length ==0) {
+          alert("請輸入電話");
+          return false;
+        }
+        if(validatePhoneNumber(phone) == false) {
+          alert("請輸入正確的手機號碼");
+          return false;
+        }
+        if(id.length == 0) {
+          alert("請輸入身分證字號");
+          return false;
+        }
+        if(verifyId(id) == false) {
+          alert("請輸入正確的身分證字號");
+          return false;
+        }
+        if(address.length == 0) {
+          alert("請輸入地址");
+          return false;
+        }
+        if(email.length == 0) {
+          alert("請輸入電子郵件");
+          return false;
+        }
+        console.log(email);
+        if(validateEmail(email) == false) {
+          alert("請輸入正確的電子郵件");
+          return false;
+        }
+        checkout(title + " * " + count, totalPrice);
+      }
+
+      function validateEmail(email) {
+        let rst = String(email)
+          .toLowerCase()
+          .match(
+            /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+          );
+        return rst != null;
+      };
+
+      function verifyId(id) {
+        id = id.trim();
+        verification = id.match("^[A-Z][12]\\d{8}$")
+        if(!verification){
+          return false
+        }
+        let conver = "ABCDEFGHJKLMNPQRSTUVXYWZIO"
+        let weights = [1, 9, 8, 7, 6, 5, 4, 3, 2, 1, 1]
+        id = String(conver.indexOf(id[0]) + 10) + id.slice(1);
+        checkSum = 0
+        for (let i = 0; i < id.length; i++) {
+            c = parseInt(id[i])
+            w = weights[i]
+            checkSum += c * w
+        }
+        return checkSum % 10 == 0
+      }
+
+      function validatePhoneNumber(input_str) {
+          var re = /^[\+]?[(]?[0-9]{3}[)]?[-\s\.]?[0-9]{3}[-\s\.]?[0-9]{4,6}$/im;
+          return re.test(input_str);
+      }
+
+      function checkout(productId, amount) {
+        let name = $("#billing_name").val();
+        let email = $("#billing_email").val();
+        let phone = $("#billing_phone").val();
+        let address = $("#billing_address").val();
+        let id = $("#billing_id").val();
+        $.ajax({
+            url: "https://api.travelhappy.shop/checkout",
+            data: JSON.stringify({
+              customer: {
+                name: name,
+                email: email,
+                phone: phone,
+                address: address,
+                id: id
+              },
+              product: travel
+            }),
+            type: "POST",
+            dataType: "json",
+            contentType: "application/json;charset=utf-8",
+            success: function(returnData){
+                console.log(returnData);
+            },
+            error: function(xhr, ajaxOptions, thrownError){
+                console.log(xhr.status);
+                console.log(thrownError);
+            }
+        });
+        let baseUrl = "https://ssl.smse.com.tw/ezpos_test/mtmk_utf.asp";
+        let customer = $("#billing_name").val();
+        let tel = $("#billing_phone").val();
+        let mob = $("#billing_phone").val();
+        let invoiceName = "";
+        let invoiceNum = "";
+        let remark = "";
+        let roturl = "https://api.travelhappy.shop/roturl";
+        let url = baseUrl + "?Rvg2c=1&Dcvc=14772&Od_sob=" + productId + "&Amount=" + amount + "&Pur_name=" + customer + "&Tel_number=" + tel + "&Mobile_number=" + mob + "&Address=" + address + "&Email=" + email + "&Invoice_name=" + invoiceName + "&Invoice_num=" + invoiceNum + "&Remark=" + remark + "&Roturl=" + roturl + "&Pay_zg=2";
+        window.open(url);
+      }
+    </script>
   </body>
 </html>
