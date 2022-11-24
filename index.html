@@ -347,24 +347,24 @@
       $(function() {
         addAllBanner();
         loadAllTours();
-        $(".button--previous").click(function(){
-          $(".swiper-slide-card").hide();
-          idx--;
-          if(idx<0){
-            idx = swiper.length-1;
-          }
-          $("#swiper"+idx).show();
-        });
-        $(".button--next").click(function(){
-          $(".swiper-slide-card").hide();
-          idx++;
-          if(idx>swiperIdx-1){
-            idx = 0;
-          }
-          $("#swiper"+idx).show();
-          
-        });
-
+        if (navigator.userAgent.match(/Android/i) || navigator.userAgent.match(/iPhone/i)) {
+          $(".button--previous").click(function(){
+            $(".swiper-slide-card").hide();
+            idx--;
+            if(idx<0){
+              idx = swiper.length-1;
+            }
+            $("#swiper"+idx).show();
+          });
+          $(".button--next").click(function(){
+            $(".swiper-slide-card").hide();
+            idx++;
+            if(idx>swiperIdx-1){
+              idx = 0;
+            }
+            $("#swiper"+idx).show();
+          });
+        }
       });
 
       function loadAllTours() {
