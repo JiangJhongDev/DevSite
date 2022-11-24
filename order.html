@@ -274,7 +274,7 @@
           <!-- Footer copyright -->
           <div class="rlr-footer__legal__row rlr-footer__legal__row--bottom">
             <div class="rlr-footer__legal__row__col">
-              <span>2022 © 預遊網 / 快樂遊國際有限公司 / 臺北市大同區西寧北路78之16號(八)樓</span>
+              <span>2022 © 預遊網 / 快樂遊國際有限公司</span>
             </div>
             <!-- Footer payment thumbs -->
             <div class="rlr-footer__legal__row__col">
@@ -346,7 +346,7 @@
                   content += '</td>';
                   content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">';
                     if(payment.paied == 0) {
-                      content += '<a href="javascript: payPage(\'' + payment.payment_id + '\', \'' + payment.amount + '\')" class="">付款</a>';
+                      content += '<button onclick="payPage(\'' + payment.payment_id + '\', \'' + payment.amount + '\')" >付款</button>';
                     } else if(payment.paied < payment.amount) {
                       content += '<b>未完整支付，請洽客服人員</b>';
                     } else if(payment.paied >= payment.amount) {
