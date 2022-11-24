@@ -138,40 +138,7 @@
                                 </ul>
                                 
                               </div>
-                              <!--
-                              <h6 class="checkout__section-title">
-                                <span> 付款方式</span>
-                              </h6>
-                              <div id="payment" class="woocommerce-checkout-payment">
-                                <ul class="wc_payment_methods payment_methods methods">
-                                  <li class="wc_payment_method payment_method_stripe payment-details__visa">
-                                    <label for="payment_method_stripe"> 銀行轉帳<br>收款人：快樂遊國際有限公司<br>銀行代碼：台新國際商業銀行812-延平分行0779<br>銀行帳戶：2077-010-0000970-7 </label>
-                                    <input id="payment_method_stripe" type="radio" class="input-radio" name="payment_method" value="stripe" data-order_button_text="" checked="checked" value="true" />
-                                  </li>
-                                  
-                                  <li class="wc_payment_method">
-                                    <p class="form-row woocommerce-SavedPaymentMethods-saveNew woocommerce-validated payment-details__add-card">
-                                      <label for="wc-stripe-new-payment-method" style="display: inline"> 目前暫不支援其他付款方式 </label>
-                                      <input id="wc-stripe-new-payment-method" class="input-radio" name="payment_method" type="radio" value="true" disabled />
-                                    </p>
-                                  </li>
-                                </ul>
-                                <div class="form-row place-order">
-                                  <noscript>
-                                    Since your browser does not support JavaScript, or it is disabled, please ensure you click the
-                                    <em> Update Totals </em>
-                                    button before placing your order. You may be charged more than the amount stated above if you fail to do so.
-                                    <br />
-                                    <button type="submit" class="button alt" name="woocommerce_checkout_update_totals" value="Update totals">Update totals</button>
-                                  </noscript>
-                                  <div class="woocommerce-terms-and-conditions-wrapper">
-                                    <div class="woocommerce-privacy-policy-text"></div>
-                                  </div>
-                                  <input type="hidden" id="woocommerce-process-checkout-nonce" name="woocommerce-process-checkout-nonce" value="594806c7c0" />
-                                  <input type="hidden" name="_wp_http_referer" value="/wp/?wc-ajax=update_order_review" />
-                                </div>
-                              </div>
-                              -->
+                              
                             </div>
                           </div>
                         </div>
@@ -457,9 +424,12 @@
           alert("請輸入電子郵件");
           return false;
         }
-        console.log(email);
         if(validateEmail(email) == false) {
           alert("請輸入正確的電子郵件");
+          return false;
+        }
+        if(!$('input[name=payment_method]:checked').val()) {
+          alert("請選擇航班");
           return false;
         }
         checkout(title + " * " + count, totalPrice);
