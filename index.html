@@ -342,6 +342,8 @@
     <script src="./js/jquery.flexslider-min.js" defer></script>
     <script>
 
+      let swiper = [];
+
       $(function() {
         addAllBanner();
         loadAllTours();
@@ -355,7 +357,9 @@
               let row = data[i];
               let imgUrl = "https://api.travelhappy.shop/img/" + row.img;
               let detailUrl = "https://api.travelhappy.shop/pdf/" + row.pdf;
-              createSwiper(row.id, imgUrl, detailUrl, row.title, row.sub1, row.sub2, row.discount, row.price, row.rate, row.days, row.check);
+              let content = createSwiper(row.id, imgUrl, detailUrl, row.title, row.sub1, row.sub2, row.discount, row.price, row.rate, row.days, row.check);
+              let src = $("#productContent").html();
+              $("#productContent").html(src + content);
             }
           }
         });
@@ -461,9 +465,8 @@
               content += '</div>';
             content += '</article>';
         content += '</div>';
-
-        let src = $("#productContent").html();
-        $("#productContent").html(src + content);
+        swiper.push("swiper" + id);
+        return content;
       }
 
       function createBanner(fn) {
