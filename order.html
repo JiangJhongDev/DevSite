@@ -90,6 +90,34 @@
                             </span>
                           </li>
                         </ul>
+                        <div>
+                          <div class="table">
+                            <table class="rlr-data-table woocommerce-orders-table woocommerce-MyAccount-orders shop_table shop_table_responsive my_account_orders account-orders-table">
+                              <thead class="rlr-data-table__header">
+                                <tr class="rlr-data-table__header-row">
+                                  <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-number">
+                                    <span class="nobr"> 付款編號 </span>
+                                  </th>
+                                  <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-date">
+                                    <span class="nobr"> 付款日期 </span>
+                                  </th>
+                                  <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-status">
+                                    <span class="nobr"> 應付金額 </span>
+                                  </th>
+                                  <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-total">
+                                    <span class="nobr"> 實收金額 </span>
+                                  </th>
+                                  <th class="woocommerce-orders-table__header woocommerce-orders-table__header-order-actions">
+                                    <span class="nobr"> 付款狀態 </span>
+                                  </th>
+                                </tr>
+                              </thead>
+                              <tbody id="payments">
+                                
+                              </tbody>
+                            </table>
+                          </div>
+                        </div>
                         <div class="woocommerce-customer-details">
                           <h2 class="woocommerce-column__title">訂購人資訊</h2>
                           <address>
@@ -269,6 +297,29 @@
         $("#startAirport_2").html("<b>回程出發機場: </b>" + json.flight.startAirport_2);
         $("#endAirport_2").html("<b>回程抵達機場: </b>" + json.flight.endAirport_2);
       });
+
+      function addPayment(paymentId) {
+        let content = '<tr class="rlr-data-table__row woocommerce-orders-table__row woocommerce-orders-table__row--status-on-hold order">';
+          content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number" data-title="Order">';
+            content += '<a href="./product-detail-page.html"> ' + paymentId + ' </a>';
+            content += '</td>';
+            content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date" data-title="Date">';
+              content += '<time datetime="2022-04-20T08:01:42+00:00"> April 20, 2022 </time>';
+              content += '</td>';
+              content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="Status">On hold</td>';
+              content += '<td class="rlr-data-table__cell rlr-data-table__cell-total woocommerce-orders-table__cell woocommerce-orders-table__cell-order-total" data-title="Total">';
+                content += '<span class="rlr-data-table__amount woocommerce-Price-amount amount">';
+                  content += '<span class="woocommerce-Price-currencySymbol"> £ </span>';
+                  content += '4,000.00';
+                  content += '</span>';
+                  content += 'for 1 item';
+                  content += '</td>';
+                  content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">';
+                    content += '<a href="./product-detail-page.html" class="rlr-data-table__link woocommerce-button button view"> View </a>';
+                    content += '</td>';
+                    content += '</tr>';
+          $("#payments").append(content);
+      }
     </script>
   </body>
 </html>
