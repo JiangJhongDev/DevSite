@@ -378,7 +378,7 @@
       }
 
       function createSwiper(id, img, detailUrl, title, subtitle1 , subtitle2, discountInfo, price, starInfo, days, infos) {
-        let content = '<div class="swiper-slide">';
+        let content = '<div id="swiper' + id + '" class="swiper-slide">';
           content += '<article class="rlr-product-card rlr-product-card--v3" itemscope itemtype="https://schema.org/Product">';
             content += '<figure class="rlr-product-card__image-wrapper">';
               content += '<span class="rlr-badge rlr-badge-- rlr-badge--accent-red rlr-product-card__badge"> ' + discountInfo + ' </span>';
