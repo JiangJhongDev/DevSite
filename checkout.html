@@ -386,8 +386,15 @@
 
       function updatePrice() {
         count = parseInt($("#pselect").val());
-        $("#_total1").html("NT " + (price * count));
-        $("#_total2").html("NT " + (price * count));
+        const formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        });
+        totalPrice = price * count;
+        let total = formatter.format(totalPrice).replaceAll("$", "").replaceAll(".00", "");
+        $("#_total1").html("NT " + total);
+        $("#_total2").html("NT " + total);
+        $("#totalAmount").html("NT " + total);
       }
 
       function checkform() {
@@ -506,23 +513,7 @@
         
       }
 
-      function payPage(productId) {
-        let baseUrl = "https://ssl.smse.com.tw/ezpos_test/mtmk_utf.asp";
-        let customer = $("#billing_name").val();
-        let tel = $("#billing_phone").val();
-        let mob = $("#billing_phone").val();
-        let name = $("#billing_name").val();
-        let email = $("#billing_email").val();
-        let phone = $("#billing_phone").val();
-        let address = $("#billing_address").val();
-        let id = $("#billing_id").val();
-        let invoiceName = "";
-        let invoiceNum = "";
-        let remark = "";
-        let roturl = "https://api.travelhappy.shop/roturl";
-        let url = baseUrl + "?Rvg2c=1&Dcvc=14772&Od_sob=" + productId + "&Amount=" + totalPrice + "&Pur_name=" + customer + "&Tel_number=" + tel + "&Mobile_number=" + mob + "&Address=" + address + "&Email=" + email + "&Invoice_name=" + invoiceName + "&Invoice_num=" + invoiceNum + "&Remark=" + remark + "&Roturl=" + roturl + "&Pay_zg=2";
-        window.open(url);
-      }
+      
     </script>
   </body>
 </html>

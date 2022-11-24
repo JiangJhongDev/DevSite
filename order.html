@@ -273,9 +273,11 @@
       let search = location.search.substring(1);
       let req = JSON.parse('{"' + decodeURI(search).replace(/"/g, '\\"').replace(/&/g, '","').replace(/=/g,'":"') + '"}');
       let orderId = req.orderId;
+      let details = {};
       $("#orderId").text(orderId);
       $.getJSON("https://api.travelhappy.shop/order/" + orderId + ".json", function(json) {
         console.log(json);
+        details = json;
         $("#orderDate").text(json.order_date);
         $("#totalPrice").text(json.totalPrice);
         $("#orderName").text(json.customer.name);
@@ -296,29 +298,62 @@
         $("#startDate_2").html("<b>回程日期: </b>" + json.flight.startDate_2 + " " + json.flight.startTime_2);
         $("#startAirport_2").html("<b>回程出發機場: </b>" + json.flight.startAirport_2);
         $("#endAirport_2").html("<b>回程抵達機場: </b>" + json.flight.endAirport_2);
+
+        let payments = json.payment;
+        for(let pp of payments) {
+          addPayment(pp);
+        }
       });
 
-      function addPayment(paymentId) {
+      function addPayment(payment) {
+        const formatter = new Intl.NumberFormat('en-US', {
+          style: 'currency',
+          currency: 'USD'
+        });
+        let amount = formatter.format(payment.amount).replaceAll("$", "").replaceAll(".00", "");
         let content = '<tr class="rlr-data-table__row woocommerce-orders-table__row woocommerce-orders-table__row--status-on-hold order">';
           content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-number" data-title="Order">';
-            content += '<a href="./product-detail-page.html"> ' + paymentId + ' </a>';
+            content += '<a href="./product-detail-page.html"> ' + payment.payment_id + ' </a>';
             content += '</td>';
             content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-date" data-title="Date">';
               content += '<time datetime="2022-04-20T08:01:42+00:00"> April 20, 2022 </time>';
               content += '</td>';
-              content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="Status">On hold</td>';
+              
+              content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-status" data-title="Status"><b>TWD ' + amount + '</b></td>';
               content += '<td class="rlr-data-table__cell rlr-data-table__cell-total woocommerce-orders-table__cell woocommerce-orders-table__cell-order-total" data-title="Total">';
                 content += '<span class="rlr-data-table__amount woocommerce-Price-amount amount">';
-                  content += '<span class="woocommerce-Price-currencySymbol"> £ </span>';
-                  content += '4,000.00';
+                  content += '<span class="woocommerce-Price-currencySymbol"> TWD </span>';
+                  content += payment.paied;
                   content += '</span>';
-                  content += 'for 1 item';
                   content += '</td>';
                   content += '<td class="rlr-data-table__cell woocommerce-orders-table__cell woocommerce-orders-table__cell-order-actions" data-title="Actions">';
-                    content += '<a href="./product-detail-page.html" class="rlr-data-table__link woocommerce-button button view"> View </a>';
+                    if(payment.paied == 0) {
+                      content += '<a href="javascript: payPage(\'' + payment.payment_id + '\', \'' + payment.amount + '\')" class="">付款</a>';
+                    } else if(payment.paied < payment.amount) {
+                      content += '<b>未完整支付，請洽客服人員</b>';
+                    } else if(payment.paied >= payment.amount) {
+                      content += '<b>完成</b>';
+                    }
                     content += '</td>';
                     content += '</tr>';
           $("#payments").append(content);
+      }
+
+      function payPage(paymentId, amount) {
+        let baseUrl = "https://ssl.smse.com.tw/ezpos_test/mtmk_utf.asp";
+        let customer = details.customer.name;
+        let tel = details.customer.phone;
+        let mob = details.customer.phone;
+        let email = details.customer.email;
+        let phone = details.customer.phone;
+        let address = details.customer.address;
+        let id = details.customer.id;
+        let invoiceName = "";
+        let invoiceNum = "";
+        let remark = "";
+        let roturl = "https://api.travelhappy.shop/roturl";
+        let url = baseUrl + "?Rvg2c=1&Dcvc=14772&Od_sob=" + paymentId + "&Amount=" + amount + "&Pur_name=" + customer + "&Tel_number=" + tel + "&Mobile_number=" + mob + "&Address=" + address + "&Email=" + email + "&Invoice_name=" + invoiceName + "&Invoice_num=" + invoiceNum + "&Remark=" + remark + "&Roturl=" + roturl + "&Pay_zg=2";
+        window.open(url);
       }
     </script>
   </body>
