@@ -341,12 +341,30 @@
     <script src="./js/main.js" defer></script>
     <script src="./js/jquery.flexslider-min.js" defer></script>
     <script>
-
+      let swiperIdx = 0;
       let swiper = [];
-
+      let idx = 0;
       $(function() {
         addAllBanner();
         loadAllTours();
+        $(".button--previous").click(function(){
+          $(".swiper-slide-card").hide();
+          idx--;
+          if(idx<0){
+            idx = swiper.length-1;
+          }
+          $("#swiper"+idx).show();
+        });
+        $(".button--next").click(function(){
+          $(".swiper-slide-card").hide();
+          idx++;
+          if(idx>swiperIdx-1){
+            idx = 0;
+          }
+          $("#swiper"+idx).show();
+          
+        });
+
       });
 
       function loadAllTours() {
@@ -382,7 +400,7 @@
       }
 
       function createSwiper(id, img, detailUrl, title, subtitle1 , subtitle2, discountInfo, price, starInfo, days, infos) {
-        let content = '<div id="swiper' + id + '" class="swiper-slide">';
+        let content = '<div id="swiper' + swiperIdx + '" class="swiper-slide swiper-slide-card">';
           content += '<article class="rlr-product-card rlr-product-card--v3" itemscope itemtype="https://schema.org/Product">';
             content += '<figure class="rlr-product-card__image-wrapper">';
               content += '<span class="rlr-badge rlr-badge-- rlr-badge--accent-red rlr-product-card__badge"> ' + discountInfo + ' </span>';
@@ -465,7 +483,8 @@
               content += '</div>';
             content += '</article>';
         content += '</div>';
-        swiper.push("swiper" + id);
+        swiper.push("swiper" + swiperIdx);
+        swiperIdx++;
         return content;
       }
 
