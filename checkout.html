@@ -746,6 +746,18 @@
         let phone = $("#billing_phone").val();
         let address = $("#billing_address").val();
         let id = $("#billing_id").val();
+        let count = $("#pselect").val();
+        let passengers = [];
+        for(let i=0;i<count;i++) {
+          passengers.push({
+            name: $("#passenger" + i + " input[name='passenger_name']").val(),
+            globalName: $("#passenger" + i + " input[name='passenger_eng_name']").val(),
+            passportNum: $("#passenger" + i + " input[name='passenger_num']").val(),
+            passportValid: $("#passenger" + i + " input[name='passenger_passport_valid']").val(),
+            sex: $("#passenger" + i + " input[name='passenger_sex']").val(),
+            birth: $("#passenger" + i + " input[name='passenger_birth']").val(),
+          });
+        }
         $.ajax({
             url: "https://api.travelhappy.shop/checkout",
             data: JSON.stringify({
@@ -758,6 +770,7 @@
                 address: address,
                 id: id
               },
+              passengers: passengers,
               flight: currentFlight,
               product: travel
             }),
