@@ -589,7 +589,7 @@
           $("#_img").attr("src", "https://api.travelhappy.shop/img/" + json.data.img);
           price = parseInt(json.data.price.replaceAll(",", "").replaceAll(".", ""));
           count = parseInt($("#pselect").val());
-          totalPrice = price * count;
+          totalPrice = price * (count/2);
           let total = formatter.format(totalPrice).replaceAll("$", "").replaceAll(".00", "");
           $("#_total1").html("NT " + total);
           $("#_total2").html("NT " + total);
