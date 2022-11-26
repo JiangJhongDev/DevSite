@@ -653,7 +653,7 @@
           style: 'currency',
           currency: 'USD'
         });
-        totalPrice = price * count;
+        totalPrice = price * (count/2);
         let total = formatter.format(totalPrice).replaceAll("$", "").replaceAll(".00", "");
         $("#_total1").html("NT " + total);
         $("#_total2").html("NT " + total);
